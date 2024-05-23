@@ -1,5 +1,6 @@
 # Features
 - login/signup
+   - form validation
 
 
 - browse (only after authentication)
