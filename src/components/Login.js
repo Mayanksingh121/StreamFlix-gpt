@@ -2,9 +2,8 @@ import Header from "./Header";
 import LOGIN_BG_IMAGE from "../utils/assets/background-image.jpg";
 import { useRef, useState } from "react";
 import { checkValidData } from "../utils/validate";
-import {createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile} from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
@@ -12,11 +11,10 @@ const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const name=useRef(null);
+  const name = useRef(null);
   const emailID = useRef(null);
   const password = useRef(null);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleButtonClick = () => {
     //validate form data
@@ -33,22 +31,28 @@ const Login = () => {
 
     if (!isSignInForm) {
       //sign up logic
-      createUserWithEmailAndPassword(auth,emailID.current.value,password.current.value)
+      createUserWithEmailAndPassword(
+        auth,
+        emailID.current.value,
+        password.current.value
+      )
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
 
-
           //updating the user data in the redux store to update the display name
           updateProfile(user, {
             displayName: name.current.value,
-          }).then(() => {
-            const { uid, email, displayName } = auth.currentUser;
-            dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
-          }).catch((error) => {
-            setErrorMessage(error.message);
-          });
-          navigate("/browse");
+          })
+            .then(() => {
+              const { uid, email, displayName } = auth.currentUser;
+              dispatch(
+                addUser({ uid: uid, email: email, displayName: displayName })
+              );
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -65,7 +69,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -93,7 +96,8 @@ const Login = () => {
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignInForm && (
-          <input ref={name}
+          <input
+            ref={name}
             type="text"
             placeholder="Enter you Name"
             className="p-2 my-4 w-full bg-[#333434]"
