@@ -13,7 +13,7 @@ const Header = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         //user is signed in
         const { uid, email, displayName } = user;
@@ -25,6 +25,8 @@ const Header = () => {
         navigate("/");
       }
     });
+
+    return ()=> unsubscribe();
   }, []);
 
   const handleSignOut = () => {
@@ -45,10 +47,10 @@ const Header = () => {
       ></img>
       {user && (
         <div className="flex p-2 justify-center items-center">
-          <h3 className="font-bold md:text-white">Hi, {user.displayName}</h3>
+          <h3 className="font-semibold md:font-bold text-white">Hi, {user.displayName}</h3>
           <button
             onClick={handleSignOut}
-            className="ml-2 px-2 py-1 font-bold text-white bg-[#d9232e] rounded-lg"
+            className="ml-2 px-1 md:px-2 md:py-1 font-semibold md:font-bold text-white bg-[#d9232e] rounded-lg"
           >
             Sign Out
           </button>
