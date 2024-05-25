@@ -2,7 +2,7 @@ import React from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../utils/userSlice";
@@ -26,20 +26,19 @@ const Header = () => {
       }
     });
 
-    return ()=> unsubscribe();
+    return () => unsubscribe();
   }, []);
 
   const handleSignOut = () => {
     signOut(auth)
-      .then(() => {
-      })
+      .then(() => {})
       .catch((error) => {
         navigate("/error");
       });
   };
 
   return (
-    <div className="flex justify-between z-10 absolute px-2 py-2 md:px-5 md:py-4 w-full md:bg-gradient-to-b from-black">
+    <div className="flex justify-between z-10 absolute pl-2 py-2 md:px-5 md:py-4 w-full md:bg-gradient-to-b from-black">
       <img
         className="md:w-44 w-24"
         src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
@@ -47,10 +46,12 @@ const Header = () => {
       ></img>
       {user && (
         <div className="flex p-2 justify-center items-center">
-          <h3 className="font-semibold md:font-bold text-white">Hi, {user.displayName}</h3>
+          <h3 className="font-medium text-sm md:font-bold text-white">
+            Hi, {user.displayName}
+          </h3>
           <button
             onClick={handleSignOut}
-            className="ml-2 px-1 md:px-2 md:py-1 font-semibold md:font-bold text-white bg-[#d9232e] rounded-lg"
+            className="rounded-lg text-white bg-[#d9232e] text-sm ml-2 font-medium px-2 md:px-2 md:py-1  md:font-bold  "
           >
             Sign Out
           </button>
