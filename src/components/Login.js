@@ -119,7 +119,7 @@ const Login = () => {
         <p className="text-red-500">{errorMessage}</p>
         <button
           onClick={handleButtonClick}
-          className="my-6 py-2 bg-red-700 w-full text-xl font-medium rounded-lg"
+          className="hover:bg-red-500 my-6 py-2 bg-red-700 w-full text-xl font-medium rounded-lg"
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>

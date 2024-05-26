@@ -7,7 +7,8 @@ const MainContainer = () => {
   const movies = useSelector((store) => store.movies?.nowPlayingMovies);
   if (!movies) return;
 
-  const mainMovie = movies[8];
+  console.log(movies);
+  const mainMovie = movies[7];
   const { original_title, overview, id } = mainMovie;
   return (
     <div className="overflow-hidden">
