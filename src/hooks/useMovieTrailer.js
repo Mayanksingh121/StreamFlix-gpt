@@ -4,11 +4,11 @@ import { addTrailerVideo } from "../utils/movieSlice";
 import { useEffect } from "react";
 
 const useMovieTrailer = (movieID) => {
-  const isAvailable = useSelector(store => store.movies.trailerVideo);
+  const isAvailable = useSelector((store) => store.movies.trailerVideo);
   const dispatch = useDispatch();
   useEffect(() => {
     !isAvailable && getMovieVideos();
-  }, [0]);
+  }, []);
 
   const getMovieVideos = async () => {
     const data = await fetch(

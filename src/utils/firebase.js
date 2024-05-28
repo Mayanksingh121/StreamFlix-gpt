@@ -14,11 +14,11 @@ const firebaseConfig = {
   storageBucket: "streamflixgpt-6205c.appspot.com",
   messagingSenderId: "880948798472",
   appId: "1:880948798472:web:60a0c4d0f8c47d730d9dbd",
-  measurementId: "G-LNFCEMWFS7"
+  measurementId: "G-LNFCEMWFS7",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+getAnalytics(app);
 
-export const auth =getAuth();
+export const auth = getAuth();

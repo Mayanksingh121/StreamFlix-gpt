@@ -96,7 +96,7 @@ const Login = () => {
       <div className="absolute">
         <img className="h-full object-cover" src={LOGIN_BG_IMAGE} alt="bg" />
       </div>
-      <form
+      <form id="form"
         onSubmit={(e) => e.preventDefault()}
         className="w-[80%] md:w-4/12  bg-black py-12 px-6 absolute my-20 md:my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
       >

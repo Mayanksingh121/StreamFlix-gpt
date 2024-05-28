@@ -4,12 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { addPopularMovies } from "../utils/movieSlice";
 
 const usePopularMovies = () => {
-
-  const isPopularMovies = useSelector(store=>store.movies.popularMovies);
+  const isPopularMovies = useSelector((store) => store.movies.popularMovies);
 
   useEffect(() => {
     !isPopularMovies && getPopularMovies();
-  }, [0]);
+  }, []);
 
   const dispatch = useDispatch();
 

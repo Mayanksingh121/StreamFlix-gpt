@@ -8,7 +8,7 @@ const useUpcomingMovies = () => {
 
   useEffect(() => {
     !isUpcomingMovies && getUpcomingMovies();
-  }, [0]);
+  }, []);
 
   const dispatch = useDispatch();
 
