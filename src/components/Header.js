@@ -44,7 +44,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-between z-10 absolute pl-2 py-2 md:px-5 md:py-4 w-full md:bg-gradient-to-b from-black">
+    <div className="flex flex-col md:flex-row justify-between z-10 absolute pl-2 py-2 md:px-5 md:py-4 w-full md:bg-gradient-to-b from-black">
       <img
         className="md:w-44 w-24"
         src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
@@ -52,15 +52,15 @@ const Header = () => {
       ></img>
       {user && (
         <div className="flex p-2 justify-center items-center">
-          <button onClick={handleGPTSearchClick} className="bg-purple-800 py-2 px-4 m-2 text-white font-semibold rounded-lg hover:bg-purple-500">{showGpt?"Home":"GPT Search"}</button>
+          <button onClick={handleGPTSearchClick} className="bg-red-800 py-1 md:py-2 px-2 md:px-4 m-2 text-white font-semibold rounded-lg hover:bg-red-500">{showGpt?"Home":"GPT Search"}</button>
           <h3 className="font-medium text-sm md:font-bold text-white">
             Hi, {user.displayName}
           </h3>
           <button
             onClick={handleSignOut}
-            className="rounded-lg text-white hover:bg-red-500 bg-[#d9232e] text-sm ml-2 font-medium px-2 md:px-2 md:py-1  md:font-bold  "
+            className="rounded-lg text-white text-sm ml-1 font-medium md:font-bold hover:text-red-700"
           >
-            Sign Out
+            (Sign Out)
           </button>
         </div>
       )}

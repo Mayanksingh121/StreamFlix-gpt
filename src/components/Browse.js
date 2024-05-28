@@ -7,10 +7,12 @@ import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import useTrendingMovies from "../hooks/useTrendingMovies";
 import GptSearch from "./GptSearch";
+import MovieInformation from "../components/MovieInformation";
 import { useSelector } from "react-redux";
 
 const Browse = () => {
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
+  const isModalAvailable = useSelector(store=>store.movies.modalAvailable);
 
   useNowPlayingMovies();
   usePopularMovies();
@@ -22,9 +24,13 @@ const Browse = () => {
     <div>
       <Header />
       {showGptSearch ? (
-        <GptSearch />
+        <>
+          {isModalAvailable && <MovieInformation />}
+          <GptSearch />
+        </>
       ) : (
         <>
+          {isModalAvailable && <MovieInformation />}
           <MainContainer />
           <SecondaryContainer />
         </>

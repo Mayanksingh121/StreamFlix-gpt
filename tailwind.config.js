@@ -6,7 +6,11 @@ module.exports = {
       display: ["Poppins", "sans-serif"],
       body: ["Inter", "sans-serif"],
     },
-    extend: {},
+    extend: {
+      screens: {
+        'sm-md': {'min': '200px', 'max': '767px'},
+      },
+    },
   },
   plugins: [
     function ({ addUtilities }) {
