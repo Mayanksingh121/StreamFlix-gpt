@@ -25,20 +25,20 @@ const GptSearchBar = () => {
   };
 
   return (
-    <div className="pt-[10%] flex justify-center">
+    <div className="pt-[25%] md:pt-[10%] flex justify-center">
       <form
         className="w-full md:w-1/2 bg-black grid grid-cols-12 bg-opacity-50"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
           ref={searchResult}
-          className="col-span-9 p-4 m-4"
+          className="rounded-lg col-span-9 p-4 mx-2 my-5 md:m-4"
           type="text"
           placeholder="What would you like to watch today?"
         ></input>
         <button
           onClick={handleSearchItem}
-          className="m-4 col-span-3 py-2 px-4 bg-red-700 text-white rounded-lg"
+          className="my-5 mx-2 md:m-4 col-span-3 py-2 px-4 bg-red-700 text-white rounded-lg"
         >
           Search
         </button>
