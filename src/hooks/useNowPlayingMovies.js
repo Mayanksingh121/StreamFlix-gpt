@@ -9,7 +9,7 @@ const useNowPlayingMovies = () => {
   );
   useEffect(() => {
     !isNowPlayingMovies && getNowPlayingMovies();
-  }, []);
+  }, [0]);
 
   const dispatch = useDispatch();
 

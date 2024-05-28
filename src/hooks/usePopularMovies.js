@@ -9,7 +9,7 @@ const usePopularMovies = () => {
 
   useEffect(() => {
     !isPopularMovies && getPopularMovies();
-  }, []);
+  }, [0]);
 
   const dispatch = useDispatch();
 

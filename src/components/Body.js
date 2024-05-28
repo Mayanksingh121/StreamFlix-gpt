@@ -2,10 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "./Login";
 import Browse from "./Browse";
 import { RouterProvider } from "react-router-dom";
-
+import { ToastContainer } from "react-toastify";
 
 const Body = () => {
-
   const appRouter = createBrowserRouter([
     {
       path: "/",
@@ -19,6 +18,7 @@ const Body = () => {
 
   return (
     <div>
+      <ToastContainer position="top-center" />
       <RouterProvider router={appRouter} />
     </div>
   );

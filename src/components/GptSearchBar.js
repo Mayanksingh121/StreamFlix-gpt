@@ -38,7 +38,7 @@ const GptSearchBar = () => {
         ></input>
         <button
           onClick={handleSearchItem}
-          className="my-5 mx-2 md:m-4 col-span-3 py-2 px-4 bg-red-700 text-white rounded-lg"
+          className="my-5 mx-2 md:m-4 col-span-3 py-2 px-4 bg-red-700 text-white rounded-lg hover:bg-red-500"
         >
           Search
         </button>

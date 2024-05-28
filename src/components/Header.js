@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../utils/userSlice";
 import { toggleGptSearchView } from "../utils/gptSlice";
+import LOGO from "../utils/assets/logo.png";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -44,12 +45,8 @@ const Header = () => {
   };
 
   return (
-    <div className="flex md:flex-row justify-between z-10 absolute pl-2 py-2 md:px-5 md:py-4 w-full md:bg-gradient-to-b from-black">
-      <img
-        className="md:w-44 w-24"
-        src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-        alt="logo"
-      ></img>
+    <div className="flex md:flex-row justify-between z-10 absolute py-2 md:px-5 md:py-4 w-full md:bg-gradient-to-b from-black">
+      <img className="md:w-60 w-44" src={LOGO} alt="logo"></img>
       {user && (
         <div className="flex flex-col md:flex-row p-2 justify-center items-center">
           <button

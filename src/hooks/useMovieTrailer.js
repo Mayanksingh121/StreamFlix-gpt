@@ -8,7 +8,7 @@ const useMovieTrailer = (movieID) => {
   const dispatch = useDispatch();
   useEffect(() => {
     !isAvailable && getMovieVideos();
-  }, []);
+  }, [0]);
 
   const getMovieVideos = async () => {
     const data = await fetch(

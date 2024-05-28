@@ -8,7 +8,7 @@ const useTopRatedMovies = () => {
 
   useEffect(() => {
     !isTopRatedMovies && getTopRatedMovies();
-  }, []);
+  }, [0]);
 
   const dispatch = useDispatch();
 

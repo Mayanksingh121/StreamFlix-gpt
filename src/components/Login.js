@@ -2,10 +2,16 @@ import Header from "./Header";
 import LOGIN_BG_IMAGE from "../utils/assets/background-image.jpg";
 import { useRef, useState } from "react";
 import { checkValidData } from "../utils/validate";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -40,6 +46,7 @@ const Login = () => {
           // Signed up
           const user = userCredential.user;
 
+          toast.success("You have signed in successfully");
           //updating the user data in the redux store to update the display name
           updateProfile(user, {
             displayName: name.current.value,
@@ -69,6 +76,7 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
+          toast.success("You have signed in successfully");
         })
         .catch((error) => {
           const errorCode = error.code;

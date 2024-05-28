@@ -8,7 +8,7 @@ const useTrendingMovies = () => {
   
   useEffect(() => {
     !isTrendingMovies && getTrendingMovies();
-  }, []);
+  }, [0]);
 
   const dispatch = useDispatch();
 

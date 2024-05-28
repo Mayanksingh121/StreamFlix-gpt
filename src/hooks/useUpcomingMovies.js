@@ -4,12 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUpcomingMovies } from "../utils/movieSlice";
 
 const useUpcomingMovies = () => {
-
-  const isUpcomingMovies = useSelector(store=>store.movies.upcomingMovies);
+  const isUpcomingMovies = useSelector((store) => store.movies.upcomingMovies);
 
   useEffect(() => {
     !isUpcomingMovies && getUpcomingMovies();
-  }, []);
+  }, [0]);
 
   const dispatch = useDispatch();
 
