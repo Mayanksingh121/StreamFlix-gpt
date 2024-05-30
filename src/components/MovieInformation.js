@@ -11,8 +11,6 @@ const MovieInformation = () => {
     dispatch(toggleModal());
   };
 
-  console.log(movieData);
-
   return (
     <div className="rounded-lg fixed z-50 h-[90%] md:h-[80%] w-[90%] bg-black mt-20 left-0 right-0 m-auto">
       <div className="flex p-2 md:p-4 justify-between">
